@@ -12,7 +12,7 @@
         </span>
       </md-button>
 
-      <ul class="static-nav"> 
+      <ul class="static-nav">
         <li>
           <a @click="openSearch()">
             <img src="../assets/img/icons/search.svg">
@@ -25,77 +25,65 @@
         <li>
           <nuxt-link to="./profile" active-class="static-active">
             <img src="../assets/img/icons/profile.svg">
-            <md-tooltip md-direction="right">Your profile</md-tooltip>
-          </nuxt-link> 
+            <md-tooltip md-direction="right">
+              Your profile
+            </md-tooltip>
+          </nuxt-link>
         </li>
         <li>
-          <nuxt-link to="./setings" active-class="static-active">
+          <nuxt-link to="./settings" active-class="static-active">
             <img src="../assets/img/icons/settings.svg">
-            <md-tooltip md-direction="right">Account Settings</md-tooltip>
+            <md-tooltip md-direction="right">
+              Account Settings
+            </md-tooltip>
           </nuxt-link>
         </li>
       </ul>
     </div>
     <md-app>
       <md-app-toolbar md-elevation="0">
-        <img class="logo" src="../assets/img/logo.svg">
-        <div class="profile-completion mt-1 ml-auto mr-2">
-          <div class="percentage">
-            <h3 class="float-left font-bold font-primary">45%</h3>
-          </div>
-          <div class="completion-container float-left ml-3 mt-1">
-            <p class="font-bold font-grey-dark">Profile completion 
-              <span>
-                <i class="icon-info small"></i>
-                <!-- <md-icon>menu</md-icon> -->
-                <md-tooltip md-direction="bottom">Your profile is missing some key information. Please visit your profile page to add them.
-                  rememmber this increases your chances of getting hired
-                </md-tooltip>
-              </span>
-            </p>
-            <div class="profile-bar">
-              <div class="completion"></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- <div class="balance-container bg-accent mt-1 ml-auto mr-5">
-          <div class="balance">
-            <h3 class="float-left font-bold font-primary">75k</h3>
-          </div>
-          <div class="completion-container float-left ml-3 mt-1">
-            <p class="font-bold font-grey-dark">Current Balance
-              <span>
-                <i class="icon-info small"></i>
-                <md-tooltip md-direction="bottom">Your profile is missing some key information. Please visit your profile page to add them.
-                  rememmber this increases your chances of getting hired
-                </md-tooltip>
-              </span>
-            </p>
-            <div class="profile-bar">
-              <div class="completion"></div>
-            </div>
-          </div>
-        </div> -->
+        <a class="navbar-brand">
+          QR Code Generator - Admin
+        </a>
+        <!-- <img class="logo" src="../assets/img/logo.svg"> -->
+        <a class="signout float-right" @click="signOut()">Sign out</a>
       </md-app-toolbar>
 
       <md-app-drawer :md-active.sync="menuVisible" md-persistent="full">
         <md-toolbar class="md-transparent" md-elevation="0">
           <div>
-
-            <input class="search-field" type="text" id="searchField" placeholder="search for hospital or person">
+            <input id="searchField" class="search-field" type="text" placeholder="search for hospital or person">
 
             <!-- <h6 class="mt-4 text-uppercase">Navigation</h6>
             <div class="underline"></div> -->
 
             <ul class="main-nav">
-              <li><nuxt-link to="./dashboard" active-class="active"><img src="../assets/img/icons/dashboard.svg">Dashboard</nuxt-link></li>
-              <li><nuxt-link to="./scheduler" active-class="active"><img src="../assets/img/icons/calendar.svg">Scheduler</nuxt-link></li>
-              <li><nuxt-link to="./jobs" active-class="active"><img src="../assets/img/icons/briefcase.svg">Jobs & Reviews</nuxt-link></li>
-              <li><nuxt-link to="./payouts" active-class="active"><img src="../assets/img/icons/bank.svg">Payouts<span class="badge bg-accent float-right">Balance <strong>N407K</strong></span></nuxt-link></li>
-              <li><nuxt-link to="./support" active-class="active"><img src="../assets/img/icons/profile-grey.svg">Support</nuxt-link></li>
+              <li>
+                <nuxt-link to="./dashboard" active-class="active">
+                  <img src="../assets/img/icons/dashboard.svg">Dashboard
+                </nuxt-link>
+              </li>
+              <!-- <li>
+                <nuxt-link to="./scheduler" active-class="active">
+                  <img src="../assets/img/icons/calendar.svg">Scheduler
+                </nuxt-link>
+              </li>
+              <li>
+                <nuxt-link to="./jobs" active-class="active">
+                  <img src="../assets/img/icons/briefcase.svg">Jobs & Reviews
+                </nuxt-link>
+              </li>
+              <li>
+                <nuxt-link to="./payouts" active-class="active">
+                  <img src="../assets/img/icons/bank.svg">Payouts<span class="badge bg-accent float-right">Balance <strong>N407K</strong></span>
+                </nuxt-link>
+              </li>
+              <li>
+                <nuxt-link to="./support" active-class="active">
+                  <img src="../assets/img/icons/profile-grey.svg">Support
+                </nuxt-link>
+              </li> -->
             </ul>
-
           </div>
 
           <div class="md-toolbar-section-end">
@@ -104,13 +92,12 @@
             </md-button> -->
           </div>
         </md-toolbar>
-
       </md-app-drawer>
 
       <md-app-content>
         <!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quibusdam, non molestias et! Earum magnam, similique, quo recusandae placeat dicta asperiores modi sint ea. -->
         <div class="animated fadeIn">
-            <nuxt-child/>
+          <nuxt-child />
         </div>
       </md-app-content>
     </md-app>
@@ -118,25 +105,29 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
-  export default {
-    name: 'PersistentFull',
-    data: () => ({
-      menuVisible: true
-    }),
-    methods: {
-      toggleMenu () {
-        this.menuVisible = !this.menuVisible
-      },
-      openSearch() {
-        this.menuVisible = true;
-        document.getElementById("searchField").focus();
-      },
-      toggleShareJobModal () {
-        this.$store.commit('global/toggleShareJobModal')
-      },
+// import { mapMutations } from 'vuex'
+export default {
+  name: 'PersistentFull',
+  data: () => ({
+    menuVisible: true
+  }),
+  methods: {
+    toggleMenu () {
+      this.menuVisible = !this.menuVisible
+    },
+    openSearch () {
+      this.menuVisible = true
+      document.getElementById('searchField').focus()
+    },
+    toggleShareJobModal () {
+      this.$store.commit('global/toggleShareJobModal')
+    },
+    signOut () {
+      this.$cookies.removeAll()
+      this.$router.push('/login')
     }
   }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -236,7 +227,7 @@ import { mapMutations } from 'vuex'
   }
 
   ul.main-nav li a.active {
-    background-color: #e3e3e3; 
+    background-color: #e3e3e3;
     border-radius: 3px;
   }
 
@@ -300,5 +291,19 @@ import { mapMutations } from 'vuex'
   img.menu-close{
     width: 18px;
   }
+
+h6.title{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color:$primary;
+  text-transform: unset;
+  font-size:1.2em;
+}
+  a.signout{
+    color:$secondary;
+    font-size:13px;
+    position: absolute;
+    right:50px;
+    top:20px;
+  }
 </style>
-        

@@ -1,65 +1,73 @@
 <template>
-    <section>
-        <Header />
-        <div class="section flex-display">
-            <div class="container animated fadeIn">
-                <div class="row">
-                    <div class="col-md-5 ml-auto mr-auto">
-                        <div class="text-center">
-                            <!-- <a href="https://payafrik.io"><img class="logo" src="../assets/img/logo.png"></a> -->
-                            <div class="login-container shadowed-box">
-                                <h3 class="title">Awesome! you've signed up successfully</h3>
-                                <!-- <input type="text" v-model="username" placeholder="Create a username" v-bind:class="formErrors.usernameError === true ? 'has-error' : ''"> -->
-                                <hr> 
-                                <p>You've gotten an email from us...<br>
-                                Please follow the link in that email to confirm your email address to get started</p>
-                            
-                            </div>
-                            <hr>
-                            <p>Don't have an account on Holamedic? <nuxt-link to="/signup">Click here</nuxt-link> to signup </p>
-                        </div>
-                    </div>
-                </div>
+  <section>
+    <Header />
+    <div class="section flex-display">
+      <div class="container animated fadeIn">
+        <div class="row">
+          <div class="col-md-5 ml-auto mr-auto">
+            <div class="text-center">
+              <!-- <a href="https://payafrik.io"><img class="logo" src="../assets/img/logo.png"></a> -->
+              <div class="login-container shadowed-box">
+                <h3 class="title">
+                  Awesome! you've signed up successfully
+                </h3>
+                <!-- <input type="text" v-model="username" placeholder="Create a username" v-bind:class="formErrors.usernameError === true ? 'has-error' : ''"> -->
+                <hr>
+                <p>
+                  You've gotten an email from us...<br>
+                  Please follow the link in that email to confirm your email address to get started
+                </p>
+              </div>
+              <hr>
+              <p>
+                Don't have an account on Holamedic? <nuxt-link to="/signup">
+                  Click here
+                </nuxt-link> to signup
+              </p>
             </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
+/* eslint-disable no-console */
 import Header from '~/components/partials/Header.vue'
 
 export default {
   components: {
-      Header
+    Header
   },
-  data() {
-      return {
-          password1:'',
-          password2:'',
-          email:'',
-          strengthClass: 'weak',
-          passwordScore: '0%',
-          charAdded: false,
-          baseUrl: process.env.baseUrl,
-        //   username: '',
-          phone: '',
-          formErrors: {
-              passwordError:false,
-            //   usernameError:false,
-              emailError:false,
-              phoneError: false
-          },
-          processing: false,
-          countryCode: '+234'
-      }
-  },  
-computed: {},
-mounted() {
+  data () {
+    return {
+      password1: '',
+      password2: '',
+      email: '',
+      strengthClass: 'weak',
+      passwordScore: '0%',
+      charAdded: false,
+      baseUrl: process.env.baseUrl,
+      //   username: '',
+      phone: '',
+      formErrors: {
+        passwordError: false,
+        //   usernameError:false,
+        emailError: false,
+        phoneError: false
+      },
+      processing: false,
+      countryCode: '+234'
+    }
+  },
+  computed: {},
+  mounted () {
     console.log(this.countryCodes)
-},
+  },
   methods: {
-    async signIn() {
-        this.$router.push('/user-area/dashboard')
+    signIn () {
+      this.$router.push('/user-area/dashboard')
     }
   }
 }
@@ -125,11 +133,11 @@ h6{
     margin-top:1px;
     width:50%;
     max-width:100%;
-    background-color:#20a144;      
+    background-color:#20a144;
     transition: all 200ms ease;
 }
 .strong{
-    background-color:#20a144;      
+    background-color:#20a144;
 }
 .weak{
     background-color:#a72920;

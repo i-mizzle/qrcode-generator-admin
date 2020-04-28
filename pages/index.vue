@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div>
-      <logo />
+      <!-- <logo />
       <h1 class="title">
         ngo-assessment
       </h1>
@@ -22,18 +22,19 @@
           class="button--grey"
         >
           GitHub
-        </a>
-      </div>
+        </a> -->
+      <h2>Welcome!!!</h2>
     </div>
   </div>
+  <!-- </div> -->
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+// import Logo from '~/components/Logo.vue'
 
 export default {
   components: {
-    Logo
+    // Logo
   }
 }
 </script>

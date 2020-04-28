@@ -17,12 +17,14 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css' },
-      { rel: 'stylesheet',
+      {
+        rel: 'stylesheet',
         href: 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css',
         integrity: 'sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T',
         crossorigin: 'anonymous'
       },
-      { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css' }
+      { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css' },
+      { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css' }
     ],
     script: [
       {
@@ -62,7 +64,7 @@ export default {
     { src: '~plugins/v-calendar.js', ssr: false }
   ],
   toast: {
-    position: 'top-center',
+    position: 'bottom-left',
     duration: 1500,
     iconPack: 'fontawesome',
     closeOnSwipe: true,
@@ -86,9 +88,9 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-      // Doc: https://bootstrap-vue.js.org/docs/
-      // 'bootstrap-vue/nuxt',
-      // Doc: https://axios.nuxtjs.org/usage
+    // Doc: https://bootstrap-vue.js.org/docs/
+    // 'bootstrap-vue/nuxt',
+    // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // '@nuxtjs/pwa',
     '@nuxtjs/toast',
@@ -103,7 +105,7 @@ export default {
   ],
   styleResources: {
     scss: [
-        '~/assets/scss/colors.scss'    
+      '~/assets/scss/colors.scss'
     ]
   },
   /*
