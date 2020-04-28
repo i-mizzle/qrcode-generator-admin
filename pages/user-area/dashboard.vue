@@ -7,7 +7,7 @@
             <div class="col-md-6">
               <div class="dashboard-card shadowed-box">
                 <h2 class="font-primary font-bold">
-                  {{ qrCodes.length | number }}
+                  {{ qrCodes.length }}
                 </h2>
                 <!-- <img src="../../assets/img/hospital.svg" alt="" class="box-icon"> -->
                 <p>
@@ -31,7 +31,7 @@
                   </h6>
                   <p class="font-grey">{{ qrCode.createdAt }}
                   </p>
-                  <a class="badge bg-danger">Delete QR Code</a>
+                  <a class="badge bg-danger" @click="deleteQrCode(qrCode._id)">Delete QR Code</a>
                 </span>
 
                 <!-- <span class="badge bg-accent float-right">Profile Match</span>
@@ -94,6 +94,24 @@ export default {
       } catch (e) {
         this.$toast.error(e)
         console.log(e)
+      }
+    },
+    async deleteQrCode (id) {
+      if (confirm('This QR Code will be deleted. Are you sure?')) {
+        const headers = {
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer ' + this.userDetails.token
+        }
+
+        try {
+          const response = await this.$axios.$delete(this.baseUrl + 'qr/delete/' + id, { headers })
+          console.log('qr codes ==>', response)
+          this.$toast.success(response.data)
+          this.loadQrCodes()
+        } catch (e) {
+          this.$toast.error(e)
+          console.log(e.response)
+        }
       }
     }
   }
